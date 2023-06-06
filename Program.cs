@@ -1,7 +1,7 @@
 using Npgsql;
 using System;
-//var cs = "Host=localhost;Username=postgres;password=kangan;Database=testdb";
-var cs = "Host=localhost;Username=postgres;Password=kangan;Database=testdb";
+
+var cs = "Host=localhost      ;Username=     ;Password=   ;Database=      ";
 
 using var con = new NpgsqlConnection(cs);
 con.Open();
@@ -10,7 +10,7 @@ var sql = "SELECT version()";
 
 using var cmd = new NpgsqlCommand(sql, con);
 
-var version = cmd.ExecuteScalar().ToString();
+var version = cmd.ExecuteScalar()?.ToString();
 Console.WriteLine($"PostgresSQL ------------version: {version}");
 
 cmd.Connection = con;
